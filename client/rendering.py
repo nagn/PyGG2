@@ -59,6 +59,12 @@ class GameRenderer(object):
             engine.sentry.Building_Sentry: sentry_renderer.BuildingSentryRenderer(),
             engine.sentry.Sentry: sentry_renderer.SentryRenderer(),
         }
+        #Maps the weapon object to the corresponding ammo renderer
+        self.ammorenderers = {
+            
+            
+            
+        }
 
         self.world_sprites = []
         self.hud_overlay = []

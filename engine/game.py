@@ -17,7 +17,11 @@ class Game:
         self.isserver = False
 
         #DEBUGTOOL
-        self.toggle_masks = False
+        self.toggle_masks = True
+        #These variables are useful for modifying to change the offsets of objects ingame
+        #DEBUGTOOL
+        self.horizontal = 0
+        self.vertical = 0
         
         self.old_states = {}
 
@@ -33,10 +37,7 @@ class Game:
 
         # this accumulator is used to update the engine in fixed timesteps
         self.accumulator = 0.0
-        #These variables are useful for modifying to change the offsets of objects ingame
-        #DEBUGTOOLL
-        self.horizontal = 0
-        self.vertical = 0
+
     def update(self, networker, frametime):
         self.accumulator += frametime
 
