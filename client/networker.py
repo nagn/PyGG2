@@ -40,6 +40,8 @@ class Networker(object):
         if len(data) != numbytes:
             # TODO sane error handling
             print("SERIOUS ERROR, NUMBER OF BYTES SENT != PACKET SIZE AT HELLO")
+            
+        self.current_pint = 0.0
 
     def recieve(self, game, client):
         # If we haven't received confirmation that we're connected yet, see if we should try again:
@@ -141,5 +143,8 @@ class Networker(object):
         if len(packetstr) != numbytes:
             # TODO sane error handling
             print("SERIOUS ERROR, NUMBER OF BYTES SENT != PACKET SIZE")
-
+        
+        self.current_ping = ((self.sequence - self.server_acksequence) * constants.INPUT_SEND_FPS)
+        print(self.current_ping * 1000)
         self.sequence = (self.sequence + 1) % 65535
+        
